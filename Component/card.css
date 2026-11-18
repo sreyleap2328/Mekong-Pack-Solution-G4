@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@400;600;700;800&display=swap");
+
+:root {
+/* Brand colors */
+--primary: #7C3AED;
+--secondary: #A855F7;
+--pale-1: #DDD6FE;
+--pale-2: #F5F3FF;
+
+/* Shared colors */
+--text-main: #1F2937;
+--text-secondary: #6B7280;
+--white: #FFFFFF;
+--border: #E5E7EB;
+
+/* Fonts */
+--font-heading: "Nunito", sans-serif;
+--font-body: "Inter", sans-serif;
+
+/* Side padding: 120px on desktop, shrinks on smaller screens */
+--side-padding: clamp(16px, 8.4vw, 120px);
+}
+
+/* Big screens: content stays 1200px wide and centered */
+@media (min-width: 1441px) {
+:root {
+--side-padding: calc((100vw - 1200px) / 2);
+}
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html {
+-webkit-text-size-adjust: 100%;
+}
+
+body {
+font-family: "Inter", sans-serif;
+color: #1F2937;
+background: #ffffff;
+overflow-x: hidden;
+scroll-behavior: smooth;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.main-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+    transition:0.3s ease;
+}
+.main-card:hover{
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+    transform: translateY(-4px);
+}
+
+.main-card img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 16px;
+    
+}
+
+
+.tittle {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 8px;
+}
+
+.tittle h4 {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.tittle h1 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.tittle p {
+    font-size: 9px;
+    color: var(--muted);
+}
+
+.tittle h3 {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.tittle h3 a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.tittle h3 a:hover {
+    text-decoration: underline;
+}
+
+.tittle h3 a:focus-visible,
+.search-box:focus-within,
+.sort-select:focus-within {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+    .card-hero { padding: 20px 40px; }
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .card-hero { padding: 20px 16px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .toolbar { flex-direction: column; align-items: stretch; }
+    .search-box { width: 100%; }
+    .sort { justify-content: flex-end; }
+}   
