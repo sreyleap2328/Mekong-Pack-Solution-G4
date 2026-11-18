@@ -1,0 +1,604 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@400;600;700;800&display=swap");
+
+:root {
+  --primary: #7C3AED;
+  --secondary: #A855F7;
+  --pale-1: #DDD6FE;
+  --pale-2: #F5F3FF;
+
+  --text-main: #1F2937;
+  --text-secondary: #6B7280;
+  --white: #FFFFFF;
+  --border: #E5E7EB;
+
+  --font-heading: "Nunito", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Side padding: 120px on desktop, shrinks on smaller screens */
+  --side-padding: clamp(16px, 8.4vw, 120px);
+}
+
+@media (min-width: 1441px) {
+  :root {
+    --side-padding: calc((100vw - 1200px) / 2);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 20px var(--side-padding);
+  background: var(--pale-1);
+  font-family: var(--font-heading);
+  color: var(--text-main);
+}
+
+header>p {
+  order: 1;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+header>p span {
+  display: block;
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+header nav {
+  order: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px clamp(20px, 3.4vw, 48px);
+}
+
+header nav a {
+  position: relative;
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.25s;
+}
+
+header nav a:hover {
+  color: var(--primary);
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+.btn-header {
+  order: 3;
+  background: var(--secondary);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-header a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: clamp(14px, 1.4vw, 20px);
+}
+
+.btn-header:hover {
+  background: var(--primary);
+}
+
+@media (max-width: 900px) {
+  .btn-header {
+    order: 2;
+    padding: 10px 18px;
+    border-radius: 12px;
+  }
+
+  header nav {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    row-gap: 10px;
+  }
+
+  .btn-header {
+    padding: 9px 14px;
+    border-radius: 10px;
+  }
+
+  header nav {
+    gap: 12px 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    gap: 10px 12px;
+  }
+
+  header>p span {
+    font-size: 18px;
+  }
+
+  header nav {
+    gap: 10px 18px;
+  }
+
+  header nav a {
+    font-size: 15px;
+  }
+
+  .btn-header {
+    padding: 8px 12px;
+  }
+
+  .btn-header a {
+    font-size: 13px;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    position: static;
+  }
+}
+
+
+.about-section {
+  width: 100%;
+}
+
+.about-image {
+  width: 100%;
+  min-height: 350px;
+  background-image: url(/Img/mainn.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.about-text {
+  padding: 70px var(--side-padding);
+}
+
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 60px var(--side-padding) 30px;
+}
+
+.label::before,
+.label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #111;
+}
+
+.about-section>h2 {
+  font-size: 28px;
+  margin: 0 var(--side-padding) 40px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0 var(--side-padding);
+}
+
+.card {
+  flex: 1;
+  min-width: 0;
+  background: var(--pale-2);
+  border-radius: 8px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card i {
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.card p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #666;
+  text-align: left;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+
+.who-serve {
+  margin: 50px var(--side-padding);
+  font-family: var(--font-body);
+}
+
+.serve-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.serve-text {
+  width: 60%;
+}
+
+.serve-text h2 {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.serve-text p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.serve-image {
+  width: 38%;
+}
+
+.serve-image img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+.serve-banner {
+  background-color: var(--pale-2);
+  padding: 35px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.banner-text h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.banner-text p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.explore-btn {
+  background-color: var(--secondary);
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.explore-btn:hover {
+  background-color: var(--primary);
+}
+
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+  }
+
+  .serve-top {
+    flex-direction: column;
+  }
+
+  .serve-text,
+  .serve-image {
+    width: 100%;
+  }
+
+  .serve-image img {
+    height: 200px;
+  }
+
+  .serve-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Footer */
+footer {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  grid-template-areas:
+    "logo quick why"
+    "info quick why"
+    "copy copy  copy";
+  column-gap: clamp(24px, 4vw, 60px);
+  row-gap: 12px;
+  align-items: start;
+  padding: 20px var(--side-padding);
+  background: #DDD6FE;
+  font-family: "Nunito", sans-serif;
+  color: #1f2937;
+  margin-top: 50px;
+}
+
+/* Footer logo */
+footer>p {
+  grid-area: logo;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+footer>p span {
+  display: block;
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+/* Left column: tagline and social icons */
+.left-footer {
+  grid-area: info;
+  min-width: 0;
+}
+
+.left-footer>p {
+  max-width: 280px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.icon-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.icon-footer img {
+  width: 24px;
+  height: 24px;
+  object-fit: fill;
+  border-radius: 100%;
+}
+
+/* Middle column: quick links */
+.middle-footer {
+  grid-area: quick;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-left: -70px;
+}
+
+.middle-footer::before {
+  content: "QUICK LINKS";
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.middle-footer a {
+  position: relative;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.middle-footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.25s;
+}
+
+.middle-footer a:hover {
+  color: #7C3AED;
+}
+
+.middle-footer a:hover::after {
+  width: 100%;
+}
+
+/* Right column: why choose us, ends at the same right edge as the header button */
+.right-footer {
+  grid-area: why;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.right-footer span {
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.right-footer p {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Divider and copyright */
+footer::after {
+  content: "© 2026 Mekong Pack Solutions. All rights reserved.";
+  grid-area: copy;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #6B7280;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Footer small laptops (up to 1000px): Quick Links no longer overlaps the tagline */
+@media (max-width: 1000px) {
+  .middle-footer {
+    margin-left: 0;
+  }
+}
+
+/* Footer tablet (up to 900px) */
+@media (max-width: 900px) {
+  footer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo  logo"
+      "info  info"
+      "quick why"
+      "copy  copy";
+    column-gap: 24px;
+    row-gap: 20px;
+    padding-top: 28px;
+    padding-bottom: 20px;
+    margin-top: 32px;
+  }
+
+  .middle-footer {
+    margin-left: 0;
+  }
+
+  .right-footer {
+    justify-self: start;
+  }
+
+  .left-footer>p {
+    max-width: 360px;
+  }
+
+  footer::after {
+    margin-top: 12px;
+    padding-top: 20px;
+    font-size: 14px;
+  }
+}
+
+/* Footer mobile (up to 520px) */
+@media (max-width: 520px) {
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "info"
+      "quick"
+      "why"
+      "copy";
+    row-gap: 24px;
+    margin-top: 24px;
+  }
+
+  .left-footer>p,
+  .middle-footer::before,
+  .middle-footer a,
+  .right-footer span,
+  .right-footer p {
+    font-size: 18px;
+  }
+
+  .icon-footer img {
+    width: 36px;
+    height: 36px;
+  }
+
+  footer::after {
+    font-size: 13px;
+  }
+}   
